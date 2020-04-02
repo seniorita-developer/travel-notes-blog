@@ -1,0 +1,33 @@
+{% extends "travel_notes_app/base.html" %}
+{% load bootstrap4 %}
+{% block header %}
+
+  <h3>Travel destination: {{ destination }}</h3>
+
+{% endblock header %}
+
+{% block content %}
+
+<p>
+    <a href="{% url 'new_entry' destination.id %}">Add new note</a>
+</p>
+
+    {% for entry in entries %}
+    <div class="card">
+        <div class="card-header">
+            {{ entry.date_added|date:'d M Y H:i' }} by <b>{{ entry.owner }}</b>
+                {% if user.is_authenticated and user.id == entry.owner.id %}
+                    <br><small><a href="{% url 'edit_entry' entry.id %}">Edit note</a></small></br>
+                {% endif%}
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ entry.text|linebreaks }}</p>
+<!--            <a href="#" class="btn btn-primary">Read more</a>-->
+        </div>
+    </div>
+
+    {% empty %}
+        <li>You have no notes added.</li>
+    {% endfor %}
+
+{% endblock content %}

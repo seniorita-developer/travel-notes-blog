@@ -1,0 +1,8 @@
+project_env/
+apps/travel_notes_app/__pycache__/
+apps/users_app/__pycache__/
+django_project/__pycache__/
+*.sqlite3
+secret_settings.py
+.idea/workspace.xml
+__pycache__/secret_settings.cpython-38.pyc

@@ -1,0 +1,27 @@
+{% extends "travel_notes_app/base.html" %}
+{% load bootstrap4 %}
+{% block header %}
+
+  <h3>Destinations</h3>
+
+{% endblock header %}
+
+{% block content %}
+<div>
+    <a href="{% url 'new_destination' %}">Add new destination</a>
+</div>
+
+<div>
+<ul class="list-group list-group-flush">
+    {% for destination in destinations %}
+            <li class="list-group-item"><a href="{% url 'destination' destination.id %}">{{ destination }}</a></li>
+
+    {% empty %}
+        <li>No destination added.</li>
+    {% endfor %}
+</ul>
+    </div>
+
+
+
+{% endblock content %}

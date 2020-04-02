@@ -1,0 +1,18 @@
+{% extends "travel_notes_app/base.html" %}
+{% load bootstrap4 %}
+
+{% block header %}
+    <h3>Add new note for destination <a href="{% url 'destination' destination.id %}">{{ destination }}</a></h3>
+{% endblock header %}
+
+{% block content %}
+
+<form action="{% url 'new_entry' destination.id %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button name="submit" class="btn btn-primary">Add note</button>
+    {% endbuttons %}
+</form>
+
+{% endblock content %}
