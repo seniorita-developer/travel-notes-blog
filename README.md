@@ -5,11 +5,11 @@ Created with Python 3.8, Django, HTML, CSS, Bootstrap4.
 Project has been deployed on Heroku: https://travel-notes-blog.herokuapp.com/
 
 To run the project with commant line:
-1 - create a virtual environment 
+1) create a virtual environment:
 virtualenv env_name
-2 - activate your virtual environment (for Windows)
+2) activate your virtual environment (for Windows): 
 env_name\Scripts\activate
-3 - run server
+3) run server: 
 python manage.py runserver
 
 
